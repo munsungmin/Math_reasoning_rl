@@ -1,0 +1,175 @@
+{
+  "name": "perl",
+  "format": "step_error_classification",
+  "sources": [
+    {
+      "repo": "PARC-DATASETS/error-detection-negatives",
+      "revision": "5ef7eafcb58fdc0a4f45211141d21437fb410ea5",
+      "files": [
+        {
+          "path": "dataset/perl/raw/negatives/README.md",
+          "sha256": "1e3504183bb5399cb534aabdf930fd9bfbc54f83e1fad1b76f901c48fb59b659"
+        },
+        {
+          "path": "dataset/perl/raw/negatives/train-00000-of-00001.parquet",
+          "sha256": "2305a3fae7ccf3b7ae9173c5fdb2197a3389c0c840be715d5be5da33084fa933"
+        }
+      ],
+      "rows": 214
+    },
+    {
+      "repo": "PARC-DATASETS/error-detection-positives",
+      "revision": "b4fb74fd54f4859a9d9a7c10ba63f9a5aba7b723",
+      "files": [
+        {
+          "path": "dataset/perl/raw/positives/README.md",
+          "sha256": "719f602213a251e33720abe88b69459895aa3949e941be3f8bfecf48086d7596"
+        },
+        {
+          "path": "dataset/perl/raw/positives/train-00000-of-00001.parquet",
+          "sha256": "fabb1917354e085eaa044e6a9b9fc06569e62769d6944989f4ad6335e393f8ce"
+        }
+      ],
+      "rows": 292
+    },
+    {
+      "repo": "PARC-DATASETS/error-detection-positives_perturbed",
+      "revision": "27ea11d2764f9ddf1467427a154fe93415e6276f",
+      "files": [
+        {
+          "path": "dataset/perl/raw/positives_perturbed/README.md",
+          "sha256": "3b3b84280069e678a1c957217893ff332cc9f72b6b519b833a3518b4cded389b"
+        },
+        {
+          "path": "dataset/perl/raw/positives_perturbed/train-00000-of-00001.parquet",
+          "sha256": "4a3660d404350af6dd6b537d7ad167f17cdf13dcb36123ee600559bc61cc6f40"
+        }
+      ],
+      "rows": 247
+    }
+  ],
+  "files": {
+    "cases": {
+      "rows": 753,
+      "path": "dataset/perl/cases.parquet",
+      "sha256": "ac9eadf05f8a81f18b0370f733f733527b8e3a0dae280a18458919d71dcd6e4f"
+    },
+    "steps_all": {
+      "rows": 4449,
+      "path": "dataset/perl/steps_all.parquet",
+      "sha256": "450324c7971c5a623a88c451faf1b68206e1f12d24c7f5b5916cdd78ec4d584b"
+    },
+    "errors_3class": {
+      "rows": 1662,
+      "path": "dataset/perl/errors_3class.parquet",
+      "sha256": "91d84a9204703b4e67bffc886f9807d69ed4374b66e1289ebf0ed11ddb145b86"
+    },
+    "steps_4class": {
+      "rows": 4392,
+      "path": "dataset/perl/steps_4class.parquet",
+      "sha256": "475d02413e612a0fc71b3252dd76db57690aabcf68010b711e854c975ccde4c3"
+    },
+    "errors_3class_train": {
+      "rows": 1309,
+      "path": "dataset/perl/errors_3class_train.parquet",
+      "sha256": "4b2c807a9c22c85cafa8c2f2b60e8fe4d9b263a6fc1c9ac5bc9608e63e4c2513"
+    },
+    "errors_3class_validation": {
+      "rows": 189,
+      "path": "dataset/perl/errors_3class_validation.parquet",
+      "sha256": "120638e769be3a71f52307bcd2f40912bc46bebfc1d83259dc45d35b578f87ed"
+    },
+    "errors_3class_test": {
+      "rows": 164,
+      "path": "dataset/perl/errors_3class_test.parquet",
+      "sha256": "7017dce2dd4d1e29082fb7d43eab92ab2b21e0aa4a5caaec19bfcc81e021afb9"
+    },
+    "steps_4class_train": {
+      "rows": 3390,
+      "path": "dataset/perl/steps_4class_train.parquet",
+      "sha256": "d8b5d55993efabfe92ab4eff201d8569160531a9f7cfdc4ff0b44c8ff773acd6"
+    },
+    "steps_4class_validation": {
+      "rows": 511,
+      "path": "dataset/perl/steps_4class_validation.parquet",
+      "sha256": "4387eddb5db51e94f8e58721682a7ecc38a4bf54e3319116da6c0962f8f535a8"
+    },
+    "steps_4class_test": {
+      "rows": 491,
+      "path": "dataset/perl/steps_4class_test.parquet",
+      "sha256": "c385fde73f7204f068916e7910f44f52fab64a5e13ab38d4a0f6e22d1e04580c"
+    }
+  },
+  "scope": "Text mathematical reasoning",
+  "primary_error_types": [
+    "Mathematical_Error",
+    "Logical_Inconsistency",
+    "Accumulation_Error"
+  ],
+  "split_policy": "Custom experimental 80/10/10 hash split by whitespace-normalized question; not official splits.",
+  "source_split": "HF train is preserved as source metadata, not an official train/test guarantee.",
+  "class_statistics": {
+    "Correct": {
+      "steps": 2730,
+      "cases": 688,
+      "unique_questions": 491,
+      "splits": {
+        "validation": 322,
+        "train": 2081,
+        "test": 327
+      }
+    },
+    "Logical_Inconsistency": {
+      "steps": 388,
+      "cases": 286,
+      "unique_questions": 271,
+      "splits": {
+        "validation": 38,
+        "train": 314,
+        "test": 36
+      }
+    },
+    "Accumulation_Error": {
+      "steps": 1050,
+      "cases": 394,
+      "unique_questions": 383,
+      "splits": {
+        "validation": 124,
+        "train": 822,
+        "test": 104
+      }
+    },
+    "Mathematical_Error": {
+      "steps": 313,
+      "cases": 261,
+      "unique_questions": 252,
+      "splits": {
+        "train": 239,
+        "test": 37,
+        "validation": 37
+      }
+    },
+    "Other": {
+      "steps": 12,
+      "cases": 8,
+      "unique_questions": 8,
+      "splits": {
+        "test": 7,
+        "train": 5
+      }
+    },
+    "Missing_Steps": {
+      "steps": 1,
+      "cases": 1,
+      "unique_questions": 1,
+      "splits": {
+        "train": 1
+      }
+    }
+  },
+  "unique_questions": 514,
+  "chain_level_error_counts": {
+    "Planning_Error": 172,
+    "Missing_Steps": 15
+  }
+}

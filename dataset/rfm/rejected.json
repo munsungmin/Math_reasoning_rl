@@ -1,0 +1,1154 @@
+[
+  {
+    "file": "DeepSeek-V3.2-Speciale_gemini-2.5-pro-thinking_all.json",
+    "level": "ug",
+    "index": 31,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "ms",
+    "index": 34,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "ms",
+    "index": 41,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 76,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 87,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 40,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 55,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ms",
+    "index": 34,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ms",
+    "index": 41,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 76,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 87,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 40,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 55,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ms",
+    "index": 34,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ms",
+    "index": 41,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 76,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 86,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 87,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 40,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 55,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "ms",
+    "index": 34,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "ms",
+    "index": 41,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "hs",
+    "index": 31,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "hs",
+    "index": 76,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "hs",
+    "index": 87,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "ug",
+    "index": 40,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "claude-3-7-sonnet-thinking_gpt-5_all.json",
+    "level": "ug",
+    "index": 55,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0120_gpt-5_all.json",
+    "level": "ug",
+    "index": 38,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ms",
+    "index": 20,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ms",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 62,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 65,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 79,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 83,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 25,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 47,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 49,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_deepseek-r1-0528_all.json",
+    "level": "ug",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ms",
+    "index": 20,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ms",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 62,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 65,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 79,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 83,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 25,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 47,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 49,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ms",
+    "index": 20,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ms",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 62,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 65,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 79,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 83,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ug",
+    "index": 25,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ug",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ug",
+    "index": 47,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ug",
+    "index": 49,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-05-06_all.json",
+    "level": "ug",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ms",
+    "index": 20,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ms",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 62,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 65,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 79,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 83,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 25,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 47,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 49,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ms",
+    "index": 20,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ms",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 6,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 62,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 65,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 66,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 74,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 79,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 82,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 83,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 25,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 29,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 47,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 49,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "deepseek-r1-0528_gpt-5_all.json",
+    "level": "ug",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "doubao-1-5-thinking-pro-0415_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 28,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "gemini-2.5-pro-preview-0506_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 18,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "gemini-2.5-pro-preview-0506_gemini-2.5-pro-preview-0506_all.json",
+    "level": "ug",
+    "index": 50,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "gemini-2.5-pro-preview-0506_gpt-5_all.json",
+    "level": "ug",
+    "index": 41,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "gemini-2.5-pro-preview-0605_gpt-5_all.json",
+    "level": "ms",
+    "index": 36,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "gemini-2.5-pro-preview-0605_gpt-5_all.json",
+    "level": "ug",
+    "index": 7,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "ms",
+    "index": 0,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 19,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 36,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 61,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 63,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 73,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "hs",
+    "index": 87,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "ug",
+    "index": 31,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "ug",
+    "index": 38,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "ug",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gemini-2.5-pro-thinking_all.json",
+    "level": "ug",
+    "index": 50,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "ms",
+    "index": 0,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 19,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 28,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 36,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 51,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 54,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 61,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 63,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 69,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 73,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 85,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "hs",
+    "index": 87,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "ug",
+    "index": 31,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "ug",
+    "index": 38,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "ug",
+    "index": 46,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "gemini-3-pro-preview_gpt-5-2025-08-07_all.json",
+    "level": "ug",
+    "index": 50,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "o1_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "ug",
+    "index": 48,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o1_gpt-5_all.json",
+    "level": "hs",
+    "index": 75,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_deepseek-r1-0528_all.json",
+    "level": "hs",
+    "index": 68,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "o3-0416_doubao-seed-1-6-thinking-250615_all.json",
+    "level": "hs",
+    "index": 68,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "o3-0416_gemini-2.5-pro-preview-0506_all.json",
+    "level": "hs",
+    "index": 68,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "ms",
+    "index": 14,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "hs",
+    "index": 19,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "hs",
+    "index": 25,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "hs",
+    "index": 68,
+    "reason": "Missing proof text"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "hs",
+    "index": 78,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "hs",
+    "index": 79,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "hs",
+    "index": 84,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "ug",
+    "index": 3,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "ug",
+    "index": 26,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "ug",
+    "index": 38,
+    "reason": "Missing or ambiguous explicit labels"
+  },
+  {
+    "file": "o3-0416_gpt-5_all.json",
+    "level": "ug",
+    "index": 51,
+    "reason": "Missing or ambiguous explicit labels"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "decision": "Excluded from primary classification dataset: only 72 text math cases / 10 unique questions; severe class sparsity.",
+  "case_count": 72,
+  "unique_questions": 10,
+  "typed_error_steps": {
+    "Reasoning Error": 213,
+    "Knowledge Error": 4,
+    "Question Understanding Error": 1,
+    "Visual Interpretation Error": 1,
+    "Numerical Calculation Error": 3,
+    "Symbolic Calculation Error": 10
+  },
+  "source_revision": "03b46dab29c1a5117af6742e4c15598b88f79e7f"
+}

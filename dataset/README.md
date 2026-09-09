@@ -37,3 +37,7 @@ CUDA_VISIBLE_DEVICES='' python script/check_datasets.py
 
 추가 데이터 상세: [MATH Level 3–5](math_level3_5/README.md), [IneqMath](ineqmath/README.md).
 원본 MATH를 다시 구축하면 확장 준비 스크립트도 실행해 파생 데이터를 갱신한다.
+
+과정 오류 분류 데이터는 별도 스키마로 관리한다: [PERL (텍스트 수학, 우선 구축)](perl/README.md), [후보 검토 및 Socratic-PRMBench](prm_math/README.md). 각 폴더의 manifest를 사용하며 기존 RL용 manifest와 구분한다.
+
+[RFM: 증명 전체 다중 라벨 분류](rfm/README.md)도 별도 구축했다. [PERL과 RFM 비교](PERL_RFM_COMPARISON.md)를 참고할 것.

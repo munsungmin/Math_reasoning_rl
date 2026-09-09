@@ -1,0 +1,16 @@
+{
+  "repo": "guodadi/RFMDataset",
+  "revision": "d73be090eb811e61d509e83e29b9b29bf5edb84f",
+  "decision": "included_separately_as_proof_level_multilabel_per_user_request",
+  "reason": "Published structured labels mark error-pattern presence over the entire proof, without stable step_id/error_type mappings. Some judge narratives discuss numbered deductions but are not consistent step-level ground truth.",
+  "problem_count": 200,
+  "label_source": "LLM-as-a-judge",
+  "checked_files": [
+    "README.md",
+    "prompt/eval_prompt.txt",
+    "judgements/o1_gpt-5_all.json",
+    "judgements/o1_gemini-2.5-pro-preview-0506_all.json"
+  ],
+  "alternative_use": "proof-level multi-label failure classification; requires a separate task definition",
+  "prepared_manifest": "dataset/rfm/manifest.json"
+}
