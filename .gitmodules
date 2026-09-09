@@ -1,0 +1,9 @@
+[submodule "train_rl/verl-cu121"]
+	path = train_rl/verl-cu121
+	url = https://github.com/verl-project/verl.git
+[submodule "train_rl/verl"]
+	path = train_rl/verl
+	url = https://github.com/verl-project/verl.git
+[submodule "train_rl/apex"]
+	path = train_rl/apex
+	url = https://github.com/NVIDIA/apex.git

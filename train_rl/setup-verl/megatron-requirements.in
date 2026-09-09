@@ -1,0 +1,8 @@
+# Run from /home/sungmin/math_reasoning in conda env verl-megatron.
+-c setup-verl/requirements.in
+megatron-core==0.11.0
+nvidia-modelopt==0.19.0
+zarr<3
+ninja
+https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.3/flash_attn-2.6.3%2Bcu123torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+# Build/install Apex separately with build_apex.py and the resulting local wheel.

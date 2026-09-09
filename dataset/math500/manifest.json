@@ -1,0 +1,19 @@
+{
+  "name": "math500",
+  "repo": "HuggingFaceH4/MATH-500",
+  "url": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+  "config": "default",
+  "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+  "license": null,
+  "splits": {
+    "test": {
+      "rows": 500,
+      "source_rows": 500,
+      "rejected": 0,
+      "source_file": "test.jsonl",
+      "path": "dataset/math500/test.parquet",
+      "sha256": "b0d020f438ea2d8c668125f73da70186d57db2c768e7bf38e3956a7d7c3fac93"
+    }
+  },
+  "reward_dispatch": "DigitalLearningGmbH/MATH-lighteval selects the existing symbolic scorer; true source is preserved in extra_info.source_repo."
+}

@@ -1,0 +1,82 @@
+{
+  "name": "ineqmath",
+  "repo": "AI4Math/IneqMath",
+  "url": "https://huggingface.co/datasets/AI4Math/IneqMath",
+  "revision": "3c7c32c786eb77117f3476d7f6d9af8419fa6ecc",
+  "license": "cc-by-sa-4.0",
+  "format": "inequality_archive",
+  "splits": {
+    "train": {
+      "rows": 1252,
+      "path": "dataset/ineqmath/train.parquet",
+      "sha256": "dff920035ab0349b5d46878e573d8ed2b0e137f7259ba1cc33e58bdb5d1d78d9",
+      "labeled_rows": 1252,
+      "task_counts": {
+        "bound": 626,
+        "relation": 626
+      }
+    },
+    "train_expanded": {
+      "rows": 5181,
+      "path": "dataset/ineqmath/train_expanded.parquet",
+      "sha256": "4afba5118e79f0f9c6b46deae4c4a2561e4d8703446dce6484f7af3f33c1602d",
+      "labeled_rows": 5181,
+      "task_counts": {
+        "bound": 2623,
+        "relation": 2558
+      }
+    },
+    "dev": {
+      "rows": 100,
+      "path": "dataset/ineqmath/dev.parquet",
+      "sha256": "111d979f0795e83a627801e4e112ecce24add352fe9fc2b2e383127eb2a604da",
+      "labeled_rows": 100,
+      "task_counts": {
+        "bound": 50,
+        "relation": 50
+      }
+    },
+    "test": {
+      "rows": 200,
+      "path": "dataset/ineqmath/test.parquet",
+      "sha256": "e21bb4358cd51c7718ef073ab6380bdef457d3907377c77481918d980d240fd2",
+      "labeled_rows": 0,
+      "task_counts": {
+        "bound": 96,
+        "relation": 104
+      }
+    }
+  },
+  "raw_files": {
+    "README.md": {
+      "path": "dataset/ineqmath/raw/README.md",
+      "sha256": "e363ee842922a04b0050a9f700664b2f82015487b2d998d6ba38c393d83d3428"
+    },
+    "datasheet.md": {
+      "path": "dataset/ineqmath/raw/datasheet.md",
+      "sha256": "f95933b8c94a283c7f19f014724735a93634f290b8d6a8f712907a5bcaf02bf6"
+    },
+    "json/train.json": {
+      "path": "dataset/ineqmath/raw/train.json",
+      "sha256": "3531264d1e988bfbacf4070fd4a635b84d6ca705e3baa5a6dbf91c8a966bfcd5"
+    },
+    "json/train_expanded.json": {
+      "path": "dataset/ineqmath/raw/train_expanded.json",
+      "sha256": "7c38d79fb1fb83f5e4a584e21fb78d9700dc781f5f09c3667480975d4eb7883c"
+    },
+    "json/dev.json": {
+      "path": "dataset/ineqmath/raw/dev.json",
+      "sha256": "625296f60c6847dbad77c60b518588c0d5e1722cd8822ee5e35d9d0dcaabfe9b"
+    },
+    "json/test.json": {
+      "path": "dataset/ineqmath/raw/test.json",
+      "sha256": "aca7b0f5ce22e89b98048a1f9fe0c274f13d1dcc0043adac879fcf8b0577f0e0"
+    },
+    "json/theorems.json": {
+      "path": "dataset/ineqmath/raw/theorems.json",
+      "sha256": "9952c1e145868d8a34aebf11ec3ed7e2a15b3ef2f58af9df14b8fe4305f73459"
+    }
+  },
+  "note": "Original answers, solutions and theorem annotations preserved. Not directly compatible with the default verl reward dispatcher. Test answers are withheld; use dev for local labeled evaluation. train_expanded overlaps train; use one or the other. Source terms prohibit using test as training data.",
+  "theorem_count": 83
+}

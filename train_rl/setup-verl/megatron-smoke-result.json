@@ -1,0 +1,11 @@
+{
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "compute_capability": [
+    7,
+    5
+  ],
+  "megatron_tensor_parallel_layer_and_apex_optimizer": "PASS (TP=1)",
+  "apex_rmsnorm": "PASS",
+  "verl_megatron_import": "PASS: ParallelQwen2ForCausalLMRmPadPP",
+  "flash_attention_2": "RuntimeError: FlashAttention only supports Ampere GPUs or newer."
+}

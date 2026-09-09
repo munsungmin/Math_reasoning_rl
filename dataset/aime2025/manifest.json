@@ -1,0 +1,36 @@
+{
+  "name": "aime2025",
+  "repo": "opencompass/AIME2025",
+  "url": "https://huggingface.co/datasets/opencompass/AIME2025",
+  "config": "AIME2025-I+II",
+  "revision": "a6ad95f611d72cf628a80b58bd0432ef6638f958",
+  "license": "mit",
+  "splits": {
+    "test_I": {
+      "rows": 15,
+      "source_rows": 15,
+      "rejected": 0,
+      "source_file": "aime2025-I.jsonl",
+      "path": "dataset/aime2025/test_I.parquet",
+      "sha256": "0fcd299bd0cab0a7bd36d411176bf47263c8a32d3a04058e365ac80ec8451c77"
+    },
+    "test_II": {
+      "rows": 15,
+      "source_rows": 15,
+      "rejected": 0,
+      "source_file": "aime2025-II.jsonl",
+      "path": "dataset/aime2025/test_II.parquet",
+      "sha256": "d8f6a0d25d2e3578882019c88d9c2ea72960ba42c258b70b45dfc4da6ef10e8e"
+    },
+    "test": {
+      "rows": 30,
+      "path": "dataset/aime2025/test.parquet",
+      "source_splits": [
+        "test_I",
+        "test_II"
+      ],
+      "sha256": "680c1716d11b0c7cfd70afcfd097e511980c8ee383400dc597e21a13a5149445"
+    }
+  },
+  "reward_dispatch": "DigitalLearningGmbH/MATH-lighteval selects the existing symbolic scorer; true source is preserved in extra_info.source_repo."
+}

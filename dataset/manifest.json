@@ -1,0 +1,288 @@
+[
+  {
+    "name": "gsm8k",
+    "repo": "openai/gsm8k",
+    "url": "https://huggingface.co/datasets/openai/gsm8k",
+    "config": "main",
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "license": [
+      "mit"
+    ],
+    "splits": {
+      "train": {
+        "rows": 7473,
+        "source_rows": 7473,
+        "rejected": 0,
+        "source_file": "main/train-00000-of-00001.parquet",
+        "path": "dataset/gsm8k/train.parquet",
+        "sha256": "0f3492a0a919388b658b1f1dd6073ccefef847f4ca208723b4b0498a932236dc"
+      },
+      "test": {
+        "rows": 1319,
+        "source_rows": 1319,
+        "rejected": 0,
+        "source_file": "main/test-00000-of-00001.parquet",
+        "path": "dataset/gsm8k/test.parquet",
+        "sha256": "455937f1783efac89de9aa5ce54b7275aa45abbc1912221924392940e28fce2b"
+      }
+    }
+  },
+  {
+    "name": "math",
+    "repo": "DigitalLearningGmbH/MATH-lighteval",
+    "url": "https://huggingface.co/datasets/DigitalLearningGmbH/MATH-lighteval",
+    "config": "default",
+    "revision": "0530c78699ea5e8eb5530600900e1f328b48acad",
+    "license": "mit",
+    "splits": {
+      "train": {
+        "rows": 7497,
+        "source_rows": 7500,
+        "rejected": 2,
+        "source_file": "data/train-00000-of-00001.parquet",
+        "path": "dataset/math/train.parquet",
+        "sha256": "f633ad47734066673b0519516f9758bd0ea3a5333e918d31ec4080e4fa05347b",
+        "eval_overlap_removed": 1
+      },
+      "test": {
+        "rows": 5000,
+        "source_rows": 5000,
+        "rejected": 0,
+        "source_file": "data/test-00000-of-00001.parquet",
+        "path": "dataset/math/test.parquet",
+        "sha256": "19b5a7377df35d24ed6c56c5c6cf5f15746353e7b9322828404f39bb3616bbac"
+      }
+    }
+  },
+  {
+    "name": "math500",
+    "repo": "HuggingFaceH4/MATH-500",
+    "url": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+    "config": "default",
+    "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+    "license": null,
+    "splits": {
+      "test": {
+        "rows": 500,
+        "source_rows": 500,
+        "rejected": 0,
+        "source_file": "test.jsonl",
+        "path": "dataset/math500/test.parquet",
+        "sha256": "b0d020f438ea2d8c668125f73da70186d57db2c768e7bf38e3956a7d7c3fac93"
+      }
+    },
+    "reward_dispatch": "DigitalLearningGmbH/MATH-lighteval selects the existing symbolic scorer; true source is preserved in extra_info.source_repo."
+  },
+  {
+    "name": "aime2025",
+    "repo": "opencompass/AIME2025",
+    "url": "https://huggingface.co/datasets/opencompass/AIME2025",
+    "config": "AIME2025-I+II",
+    "revision": "a6ad95f611d72cf628a80b58bd0432ef6638f958",
+    "license": "mit",
+    "splits": {
+      "test_I": {
+        "rows": 15,
+        "source_rows": 15,
+        "rejected": 0,
+        "source_file": "aime2025-I.jsonl",
+        "path": "dataset/aime2025/test_I.parquet",
+        "sha256": "0fcd299bd0cab0a7bd36d411176bf47263c8a32d3a04058e365ac80ec8451c77"
+      },
+      "test_II": {
+        "rows": 15,
+        "source_rows": 15,
+        "rejected": 0,
+        "source_file": "aime2025-II.jsonl",
+        "path": "dataset/aime2025/test_II.parquet",
+        "sha256": "d8f6a0d25d2e3578882019c88d9c2ea72960ba42c258b70b45dfc4da6ef10e8e"
+      },
+      "test": {
+        "rows": 30,
+        "path": "dataset/aime2025/test.parquet",
+        "source_splits": [
+          "test_I",
+          "test_II"
+        ],
+        "sha256": "680c1716d11b0c7cfd70afcfd097e511980c8ee383400dc597e21a13a5149445"
+      }
+    },
+    "reward_dispatch": "DigitalLearningGmbH/MATH-lighteval selects the existing symbolic scorer; true source is preserved in extra_info.source_repo."
+  },
+  {
+    "name": "aime2024",
+    "repo": "HuggingFaceH4/aime_2024",
+    "url": "https://huggingface.co/datasets/HuggingFaceH4/aime_2024",
+    "config": "default",
+    "revision": "2fe88a2f1091d5048c0f36abc874fb997b3dd99a",
+    "license": null,
+    "splits": {
+      "test": {
+        "rows": 30,
+        "source_rows": 30,
+        "rejected": 0,
+        "source_file": "data/train-00000-of-00001.parquet",
+        "path": "dataset/aime2024/test.parquet",
+        "sha256": "08fc43370b59ff43beb33d760e01e89fde0003be2efeafc926be4dfd6bc596d8"
+      }
+    },
+    "note": "Upstream split is named train; stored as test locally because this is an evaluation benchmark.",
+    "reward_dispatch": "DigitalLearningGmbH/MATH-lighteval selects the existing symbolic scorer; true source is preserved in extra_info.source_repo."
+  },
+  {
+    "name": "math_level3_5",
+    "repo": "DigitalLearningGmbH/MATH-lighteval",
+    "url": "https://huggingface.co/datasets/DigitalLearningGmbH/MATH-lighteval",
+    "revision": "0530c78699ea5e8eb5530600900e1f328b48acad",
+    "license": "mit",
+    "format": "verl",
+    "levels": [
+      3,
+      4,
+      5
+    ],
+    "splits": {
+      "train": {
+        "rows": 5583,
+        "path": "dataset/math_level3_5/train.parquet",
+        "sha256": "22ba22af2e2acf3ca30340925089d2961825ac11be12660ecc180a72ac3b6686"
+      },
+      "train_level3": {
+        "rows": 1592,
+        "path": "dataset/math_level3_5/train_level3.parquet",
+        "sha256": "8f80e885d27f3c8ba4bf3b924f81a26e53df288646554512591185891dc13a00"
+      },
+      "train_level4": {
+        "rows": 1690,
+        "path": "dataset/math_level3_5/train_level4.parquet",
+        "sha256": "24870b292d6be4b1e261308ece8840f539093bce40f5e0cf950c3b7c2bd4e155"
+      },
+      "train_level5": {
+        "rows": 2301,
+        "path": "dataset/math_level3_5/train_level5.parquet",
+        "sha256": "80048c611af42aa724d179757b4bb5954a1d87ee2b42b8fe861c4bd7ef626c4a"
+      },
+      "test": {
+        "rows": 3669,
+        "path": "dataset/math_level3_5/test.parquet",
+        "sha256": "342465e4b3e4b536a6172aa7023b09ed5ba55b3ee02604dfb5a5926787104de0"
+      },
+      "test_level3": {
+        "rows": 1131,
+        "path": "dataset/math_level3_5/test_level3.parquet",
+        "sha256": "b0aa91da9a7dbae7b8807febf8800023354f50173563ce52a51a0e589b4e6128"
+      },
+      "test_level4": {
+        "rows": 1214,
+        "path": "dataset/math_level3_5/test_level4.parquet",
+        "sha256": "6d90548a72946e46a285c33b6a40355f358f08d0cdfd3e624d48d3bab0aa136f"
+      },
+      "test_level5": {
+        "rows": 1324,
+        "path": "dataset/math_level3_5/test_level5.parquet",
+        "sha256": "21e33ed4992bcd9fa3fc6ac379f9f2b34189b660f0b9a27588ffbe02306a06d5"
+      }
+    },
+    "parent_files": {
+      "train": {
+        "path": "dataset/math/train.parquet",
+        "sha256": "f633ad47734066673b0519516f9758bd0ea3a5333e918d31ec4080e4fa05347b"
+      },
+      "train_raw": {
+        "path": "dataset/math/raw/train-00000-of-00001.parquet",
+        "sha256": "eca6e667f4305dd5e5ba09b4fd55e7f3174a0fbe361cdfd4c44758b593a76933"
+      },
+      "test": {
+        "path": "dataset/math/test.parquet",
+        "sha256": "19b5a7377df35d24ed6c56c5c6cf5f15746353e7b9322828404f39bb3616bbac"
+      },
+      "test_raw": {
+        "path": "dataset/math/raw/test-00000-of-00001.parquet",
+        "sha256": "7dca8d6e41af88ecf82f2b5f36eb5530e083aaaa86ee325f62bd5c31535178c6"
+      }
+    },
+    "note": "MATH difficulty levels, for Qwen training; not Qwen-generated data. Original train/test split and prior cleaning preserved. Per-level files partition each combined split; do not concatenate them with the combined file."
+  },
+  {
+    "name": "ineqmath",
+    "repo": "AI4Math/IneqMath",
+    "url": "https://huggingface.co/datasets/AI4Math/IneqMath",
+    "revision": "3c7c32c786eb77117f3476d7f6d9af8419fa6ecc",
+    "license": "cc-by-sa-4.0",
+    "format": "inequality_archive",
+    "splits": {
+      "train": {
+        "rows": 1252,
+        "path": "dataset/ineqmath/train.parquet",
+        "sha256": "dff920035ab0349b5d46878e573d8ed2b0e137f7259ba1cc33e58bdb5d1d78d9",
+        "labeled_rows": 1252,
+        "task_counts": {
+          "bound": 626,
+          "relation": 626
+        }
+      },
+      "train_expanded": {
+        "rows": 5181,
+        "path": "dataset/ineqmath/train_expanded.parquet",
+        "sha256": "4afba5118e79f0f9c6b46deae4c4a2561e4d8703446dce6484f7af3f33c1602d",
+        "labeled_rows": 5181,
+        "task_counts": {
+          "bound": 2623,
+          "relation": 2558
+        }
+      },
+      "dev": {
+        "rows": 100,
+        "path": "dataset/ineqmath/dev.parquet",
+        "sha256": "111d979f0795e83a627801e4e112ecce24add352fe9fc2b2e383127eb2a604da",
+        "labeled_rows": 100,
+        "task_counts": {
+          "bound": 50,
+          "relation": 50
+        }
+      },
+      "test": {
+        "rows": 200,
+        "path": "dataset/ineqmath/test.parquet",
+        "sha256": "e21bb4358cd51c7718ef073ab6380bdef457d3907377c77481918d980d240fd2",
+        "labeled_rows": 0,
+        "task_counts": {
+          "bound": 96,
+          "relation": 104
+        }
+      }
+    },
+    "raw_files": {
+      "README.md": {
+        "path": "dataset/ineqmath/raw/README.md",
+        "sha256": "e363ee842922a04b0050a9f700664b2f82015487b2d998d6ba38c393d83d3428"
+      },
+      "datasheet.md": {
+        "path": "dataset/ineqmath/raw/datasheet.md",
+        "sha256": "f95933b8c94a283c7f19f014724735a93634f290b8d6a8f712907a5bcaf02bf6"
+      },
+      "json/train.json": {
+        "path": "dataset/ineqmath/raw/train.json",
+        "sha256": "3531264d1e988bfbacf4070fd4a635b84d6ca705e3baa5a6dbf91c8a966bfcd5"
+      },
+      "json/train_expanded.json": {
+        "path": "dataset/ineqmath/raw/train_expanded.json",
+        "sha256": "7c38d79fb1fb83f5e4a584e21fb78d9700dc781f5f09c3667480975d4eb7883c"
+      },
+      "json/dev.json": {
+        "path": "dataset/ineqmath/raw/dev.json",
+        "sha256": "625296f60c6847dbad77c60b518588c0d5e1722cd8822ee5e35d9d0dcaabfe9b"
+      },
+      "json/test.json": {
+        "path": "dataset/ineqmath/raw/test.json",
+        "sha256": "aca7b0f5ce22e89b98048a1f9fe0c274f13d1dcc0043adac879fcf8b0577f0e0"
+      },
+      "json/theorems.json": {
+        "path": "dataset/ineqmath/raw/theorems.json",
+        "sha256": "9952c1e145868d8a34aebf11ec3ed7e2a15b3ef2f58af9df14b8fe4305f73459"
+      }
+    },
+    "note": "Original answers, solutions and theorem annotations preserved. Not directly compatible with the default verl reward dispatcher. Test answers are withheld; use dev for local labeled evaluation. train_expanded overlaps train; use one or the other. Source terms prohibit using test as training data.",
+    "theorem_count": 83
+  }
+]
