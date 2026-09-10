@@ -5,4 +5,7 @@ __pycache__/
 .env
 .env.*
 outputs/
+experiments/
 *.log
+.ext
+ext/

@@ -1,9 +1,12 @@
-[submodule "train_rl/verl-cu121"]
-	path = train_rl/verl-cu121
+[submodule "ext/verl-cu121"]
+	path = ext/verl-cu121
 	url = https://github.com/verl-project/verl.git
-[submodule "train_rl/verl"]
-	path = train_rl/verl
+[submodule "ext/verl"]
+	path = ext/verl
 	url = https://github.com/verl-project/verl.git
-[submodule "train_rl/apex"]
-	path = train_rl/apex
+[submodule "ext/apex"]
+	path =ext/apex
 	url = https://github.com/NVIDIA/apex.git
+[submodule "ext/limit-of-RLVR"]
+	path = ext/limit-of-RLVR
+	url = https://github.com/LeapLabTHU/limit-of-RLVR.git

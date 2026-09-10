@@ -1,44 +1,25 @@
 # Math_reasoning_rl
 
-Qwen2.5-1.5B math reasoning experiments with verl, FSDP/Megatron launch scripts,
-Conda environment records, and prepared math datasets.
+현재 실험은 **Qwen2.5-Math-1.5B + LoRA + TRL GRPO**이며, 학습 데이터는 **MATH-500 level 3–5**다.
 
-## Clone and restore dependency changes
+```bash
+cd /home/sungmin/math_reasoning
+conda activate grpo-lora
+bash script/run_math_main.sh resume
+```
+
+실행 방법과 실제 설정 파일은 [script/README.md](script/README.md)에 정리되어 있다. 다른 터미널에서 `bash script/run_math_main.sh logs`를 실행하면 update·loss·정답률·reward·남은 시간을 간단히 볼 수 있다.
+
+- 현재 RL: 고정 학습 264문제, 별도 평가 67문제, seed 17/29, 실험별 300 updates.
+- GPU: 학습 2·4·5·6, rollout 서버 3.
+- 체크포인트: `/data/sungmin/math_reasoning/checkpoints/` 아래, 20 updates마다 최신 `last` 교체.
+- 실험·판정·분석 명세: [experiments/math_error_transfer](experiments/math_error_transfer/README.md).
+- `dataset/`: 이미 구축된 데이터. 여러 데이터셋이 존재하지만 현재 RL 입력은 고정 MATH-500 subset이다.
+- `script/stages/`, `script/analysis/`: 후속 학습과 평가·분석 코드.
+- `train_rl/`: 기존 외부 dependency checkout과 환경 기록. 현재 학습은 `grpo-lora` Conda 환경을 사용한다.
 
 ```bash
 git clone --recurse-submodules https://github.com/munsungmin/Math_reasoning_rl.git
-cd Math_reasoning_rl
-python script/apply_dependency_patches.py
 ```
 
-For an existing clone: `git submodule update --init --recursive` first.
-The parent repository pins these upstream commits:
-
-| Submodule | Commit | Purpose |
-|---|---|---|
-| train_rl/verl | 89dad2d7 | Original upstream checkout |
-| train_rl/verl-cu121 | 070ed6ac | CUDA 12.1 compatible checkout, v0.3.0.post1 |
-| train_rl/apex | b496d85f | Apex CUDA extension source |
-
-Local source edits are preserved in `train_rl/patches/`, including the existing
-import-path changes and the three CUDA compatibility edits. Submodule commits
-alone do not contain these edits; apply the patches to restore this snapshot.
-The helper skips patches that are already applied and refuses unexpected bases
-or conflicting changes. Patched submodules normally appear as modified in
-`git status`. Their source contents have not been reset or deleted.
-
-The current import-path edits include `RL.verl...` and `train_rl.apex...` imports.
-They were preserved as found, but were not validated as runnable in this layout.
-The earlier successful FSDP smoke test predates the directory move and these edits.
-
-## Files
-
-- `dataset/`: GSM8K, MATH, MATH levels 3–5, MATH-500, AIME 2024/2025, IneqMath.
-  See [dataset details](dataset/README.md).
-- `script/`: training launchers and reproducible dataset preparation/checks.
-- `train_rl/setup-verl/`: Conda specifications, compatibility patch and smoke results.
-- `train_rl/patches/`: exact local dependency changes plus base commit manifest.
-
-Execution logs, generated outputs and Python caches are kept locally and ignored
-by Git. Existing environment exports and historical reports may contain paths
-from before the directory move; adapt them to the checkout location when installing.
+학습 데이터·모델·실행 artifact는 로컬 `/data` 경로에 별도로 준비되어 있다. Git clone만으로 Conda 환경이나 모델·checkpoint가 설치되지는 않는다. dependency의 기존 로컬 변경 기록은 `train_rl/patches/`에 보존되어 있다.
