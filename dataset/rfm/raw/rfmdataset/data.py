@@ -25,7 +25,9 @@ def write_json(data: Any, path: str | Path, *, indent: int = 2) -> None:
         json.dump(data, file, ensure_ascii=False, indent=indent)
 
 
-def load_problems(data_dir: str | Path | None = None) -> dict[str, list[dict[str, Any]]]:
+def load_problems(
+    data_dir: str | Path | None = None,
+) -> dict[str, list[dict[str, Any]]]:
     """Load the 200 RFMDataset proof problems grouped by knowledge level."""
 
     base = Path(data_dir) if data_dir is not None else repo_root() / "data"
@@ -35,17 +37,25 @@ def load_problems(data_dir: str | Path | None = None) -> dict[str, list[dict[str
     }
 
 
-def load_problem_statements(data_dir: str | Path | None = None) -> dict[str, list[str]]:
+def load_problem_statements(
+    data_dir: str | Path | None = None,
+) -> dict[str, list[str]]:
     return {
         level: [item["statement"] for item in items]
         for level, items in load_problems(data_dir).items()
     }
 
 
-def load_answers(model_name: str, answers_dir: str | Path | None = None) -> dict[str, list[str]]:
+def load_answers(
+    model_name: str, answers_dir: str | Path | None = None
+) -> dict[str, list[str]]:
     """Load published model answers from answers/{model_name}_all.json."""
 
-    base = Path(answers_dir) if answers_dir is not None else repo_root() / "answers"
+    base = (
+        Path(answers_dir)
+        if answers_dir is not None
+        else repo_root() / "answers"
+    )
     return read_json(base / f"{model_name}_all.json")
 
 
@@ -56,5 +66,9 @@ def load_judgements(
 ) -> dict[str, list[str]]:
     """Load published LLM-as-judge outputs for a model/judge pair."""
 
-    base = Path(judgements_dir) if judgements_dir is not None else repo_root() / "judgements"
+    base = (
+        Path(judgements_dir)
+        if judgements_dir is not None
+        else repo_root() / "judgements"
+    )
     return read_json(base / f"{model_name}_{judge_model_name}_all.json")

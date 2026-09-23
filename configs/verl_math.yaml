@@ -1,0 +1,298 @@
+# Hydra 기본 실행: python main.py
+# 옵션 변경 예: python main.py trainer.total_training_steps=300
+# resume/test는 해당 run에 저장된 config.yaml을 사용합니다.
+# launcher는 우리 실행기 옵션, 나머지는 ext/verl의 실제 설정 이름입니다.
+# 명시하지 않은 항목은 ext/verl/verl/trainer/config/ppo_trainer.yaml에서 상속합니다.
+# runtime.* 경로는 실행기가 생성합니다. 아래 placeholder를 수정하지 마세요.
+
+defaults:
+  - ppo_trainer
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+
+hydra:
+  # 로그/설정/결과는 기존 /data run 디렉터리에 실행기가 저장합니다.
+  # 별도 outputs/ 폴더나 작업 디렉터리 변경을 만들지 않습니다.
+  run:
+    dir: .
+  job:
+    chdir: false
+  output_subdir: null
+  # -m은 Hydra 기본 순차 실행. 개별 run은 각각 고유 디렉터리를 만듭니다.
+  sweep:
+    dir: ${launcher.base_dir}/artifacts/math_error_transfer/verl/sweeps/${now:%Y%m%dT%H%M%S}
+    subdir: ${hydra.job.num}
+
+runtime:
+  repo_dir: ${repo_root:}
+  run_name: __generated_by_launcher__
+  run_dir: __generated_by_launcher__
+  checkpoint_dir: __generated_by_launcher__
+
+launcher:
+  # start / resume / check / logs / status / test
+  command: start
+  # null: 같은 실험/seed의 최신 실행 선택. 특정 재개는 /data/.../run-... 지정.
+  run: null
+  seed: 17
+  experiment: E1
+  base_dir: /data/sungmin/math_reasoning
+  artifacts_dir: ${launcher.base_dir}/artifacts/math_error_transfer/verl/${launcher.experiment}
+  checkpoints_dir: ${launcher.base_dir}/checkpoints/math_error_transfer/verl/${launcher.experiment}
+
+  # 사용 가능한 물리 GPU만 지정. GPU 개수와 checkpoint shard 검사는 자동 연동.
+  # 기존 작업이 있는 GPU에서는 시작을 거부합니다. 현재 단일 노드 전용입니다.
+  gpu_ids: [2, 4, 5, 6]
+
+  dataset:
+    name: math500_level3_5
+    levels: [3, 4, 5]
+    sources:
+      train: ${launcher.base_dir}/artifacts/math_error_transfer/frozen/v1_20260910/rl_train.jsonl
+      validation: ${launcher.base_dir}/artifacts/math_error_transfer/frozen/validation_test_v1_20260910/math_validation.jsonl
+      test: ${launcher.base_dir}/artifacts/math_error_transfer/frozen/validation_test_v1_20260910/math_test.jsonl
+    # 각 JSONL에는 sample_id, family_id, problem, prompt, answer, level이 필요합니다.
+    # 중복/분할 겹침은 거부합니다. 새 데이터를 쓸 때 경로와 개수를 함께 바꾸세요.
+    expected_counts: {train: 264, validation: 30, test: 37}
+
+  wandb:
+    # online / offline / disabled. 환경변수를 지정하면 해당 값이 우선합니다.
+    mode: ${oc.env:WANDB_MODE,online}
+    entity: ${oc.env:WANDB_ENTITY,sungmin00-gwangju-institute-of-science-and-technology}
+
+  # true: 새 checkpoint 완성을 확인한 뒤 last를 교체하고 이전 저장본 삭제.
+  # false: last는 갱신하되 이전 저장본도 보존합니다.
+  keep_last_only: true
+  heartbeat_seconds: 30
+  poll_seconds: 1
+
+  # GPU worker에 전달할 환경변수. 아래 값은 현재 2080 Ti 검증값입니다.
+  # CUDA_VISIBLE_DEVICES와 W&B 실행 ID/경로는 실행기가 별도로 관리합니다.
+  worker_env:
+    HF_HUB_OFFLINE: "1"
+    TRANSFORMERS_OFFLINE: "1"
+    TOKENIZERS_PARALLELISM: "false"
+    OMP_NUM_THREADS: "1"
+    NCCL_P2P_DISABLE: "1"
+    NCCL_IB_DISABLE: "1"
+    VLLM_USE_FLASHINFER_SAMPLER: "0"
+    RAY_DEDUP_LOGS: "0"
+
+data:
+  # 원본 JSONL은 launcher.dataset에서 지정. 실행마다 parquet를 동결합니다.
+  train_files: ["${runtime.run_dir}/train.parquet"]
+  val_files: ["${runtime.run_dir}/validation.parquet"]
+  
+  train_batch_size: ${data.rollout_distinct_question}
+
+  shuffle: true
+  validation_shuffle: false
+  seed: ${launcher.seed}
+  dataloader_num_workers: 0
+  filter_overlong_prompts: false
+  filter_overlong_prompts_workers: 1
+  train_max_samples: -1
+  
+  ##rollout length
+  max_prompt_length: 256
+  max_response_length: 1024
+  truncation: error # input prompt 에 대한 길이 설정 
+
+  #rollout parameters : rollout_distinct_question * rollout_per_question = backprop_rollout_per_gpu * grad_accumulation (backprop 횟수) * rollout_gpu
+  rollout_distinct_question : 4 # 한번 update 할 때, rollout 할 서로 다른 문제의 개수 
+  rollout_per_question : 8  # 한번 update 할 때, 하나의 문제당 rollout 할 답변의 개수 
+  backprop_rollout_per_gpu : 1 # 한번 역전파 할 때, 하나의 gpu에서 처리할 batch 의 개수 
+  rollout_gpu : ${gpu_count:${launcher.gpu_ids}} # 총 gpu 개수
+
+
+
+  val_max_samples: -1
+  val_batch_size: null
+
+actor_rollout_ref:
+  hybrid_engine: true
+  nccl_timeout: 600
+
+  model:
+    # 기존 로컬 Qwen2.5-Math-1.5B base. Instruct 다운로드를 하지 않습니다.
+    path: ${launcher.base_dir}/models/hub/models--Qwen--Qwen2.5-Math-1.5B/snapshots/4a83ca6e4526a4f2da3aa259ec36c259f66b2ab2
+    custom_chat_template: '{{ messages[0]["content"] }}'
+    trust_remote_code: false
+    override_config:
+      attn_implementation: sdpa
+    enable_gradient_checkpointing: true
+    enable_activation_offload: false
+    use_remove_padding: false
+    use_fused_kernels: false
+    lora_rank: 16
+    lora_alpha: 32
+    target_modules: [q_proj, k_proj, v_proj, o_proj]
+    exclude_modules: null
+    lora_adapter_path: null
+    # 이 FSDP 경로의 LoRA dropout은 0.0입니다. 지원되지 않는 dropout 옵션이나
+    # load_in_4bit를 추가해도 적용되지 않으므로 여기에는 넣지 않았습니다.
+
+  actor:
+    strategy: fsdp
+    # mini_batch는 prompt 단위. G를 곱하면 optimizer update당 trajectory 수.
+    # 기본: 4 * 8 = 32 / (GPU 4 * microbatch 2) = gradient accumulation 4.
+    # 현재 실행기는 1 trainer step = 1 optimizer update가 되도록 검사합니다.
+    ppo_mini_batch_size: ${data.train_batch_size}
+    ppo_micro_batch_size_per_gpu: ${data.backprop_rollout_per_gpu}
+    ppo_epochs: 1
+    use_dynamic_bsz: false
+    ppo_max_token_len_per_gpu: 16384
+    shuffle: false
+    data_loader_seed: 42
+    use_torch_compile: false
+    loss_agg_mode: token-mean
+    clip_ratio: 0.2
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.2
+    clip_ratio_c: 3.0
+    entropy_coeff: 0.0
+    calculate_entropy: false
+    use_kl_loss: true
+    kl_loss_coef: 0.01
+    kl_loss_type: low_var_kl
+    grad_clip: 0.1
+
+    optim:
+      optimizer: AdamW
+      optimizer_impl: torch.optim
+      lr: 5.0e-6
+      # 현재 FSDP scheduler 지원값: constant / cosine.
+      lr_scheduler_type: constant
+      lr_warmup_steps: 0
+      lr_warmup_steps_ratio: 0.0
+      total_training_steps: ${trainer.total_training_steps}
+      weight_decay: 0.0
+      betas: [0.9, 0.999]
+      clip_grad: ${actor_rollout_ref.actor.grad_clip}
+      min_lr_ratio: 0.0
+      num_cycles: 0.5
+      override_optimizer_config: null
+
+    fsdp_config:
+      # RTX 2080 Ti에는 FP16을 사용합니다. FP32는 저장/reduction dtype입니다.
+      model_dtype: fp32
+      dtype: float16
+      mixed_precision: {param_dtype: fp16, reduce_dtype: fp32, buffer_dtype: fp32}
+      param_offload: true
+      optimizer_offload: true
+      reshard_after_forward: true
+      fsdp_size: -1
+      forward_prefetch: false
+      use_orig_params: false
+      use_torch_compile: false
+      use_no_sync_for_gradient_accumulation: false
+      ulysses_sequence_parallel_size: 1
+      seed: ${launcher.seed}
+      full_determinism: false
+
+    checkpoint:
+      # 완전한 학습 재개와 last 검증에 필요한 항목입니다. 유지하세요.
+      save_contents: [model, optimizer, extra]
+      load_contents: ${.save_contents}
+      async_save: false
+      strict: true
+
+  # LoRA reference는 base 가중치를 공유합니다.
+  ref:
+    log_prob_micro_batch_size_per_gpu: 2
+
+  rollout:
+    name: vllm
+    mode: async
+    dtype: float16
+    n: ${data.rollout_per_question}
+    temperature: 1.0
+    top_p: 1.0
+    top_k: -1
+    do_sample: true
+    ignore_eos: false
+    seed: ${launcher.seed}
+    tensor_model_parallel_size: 1
+    data_parallel_size: 1
+    pipeline_model_parallel_size: 1
+    gpu_memory_utilization: 0.5
+    enforce_eager: true
+    free_cache_engine: true
+    enable_chunked_prefill: true
+    enable_prefix_caching: false
+    # prompt/response 길이를 바꾸면 합계 자동 반영. 메모리 적합성을 보장하진 않습니다.
+    max_model_len: ${token_budget:${data.max_prompt_length},${data.max_response_length}}
+    max_num_batched_tokens: ${actor_rollout_ref.rollout.max_model_len}
+    max_num_seqs: 8
+    load_format: safetensors
+    layered_summon: true
+    log_prob_micro_batch_size_per_gpu: 2
+    agent:
+      num_workers: 1
+    engine_kwargs:
+      vllm:
+        attention_config: {backend: TRITON_ATTN}
+        compilation_config: {mode: 0}
+    # 주기적 validation과 최종 test의 생성 설정. 기본 greedy, 문제당 1개.
+    val_kwargs:
+      n: 1
+      do_sample: false
+      temperature: 0.0
+      top_p: 1.0
+      top_k: -1
+
+reward:
+  num_workers: 1
+  custom_reward_function:
+    path: ${runtime.repo_dir}/script/train_verl.py
+    name: compute_score
+    # 합산 reward = 2*정답 + 0.5*태그 형식 + 0.5*숫자형 답변.
+    # acc는 가중치와 무관한 정답 여부. 풀이 전체의 타당성 판정은 아닙니다.
+    reward_kwargs:
+      grader_python: ${launcher.base_dir}/envs/limit-rlvr-grader/bin/python
+      grader_script: ${runtime.repo_dir}/script/limit_rlvr_grade.py
+      grader_timeout: 90
+      correctness_weight: 2.0
+      format_weight: 0.5
+      numeric_weight: 0.5
+
+algorithm:
+  adv_estimator: grpo
+  norm_adv_by_std_in_grpo: true
+  # KL은 위 actor loss에서 적용. reward에 이중으로 더하지 않습니다.
+  use_kl_in_reward: false
+
+trainer:
+  # 현재 ext/verl 안의 검증된 trainer 경로. 구버전 저장소로 바꾸지 않습니다.
+  use_v1: false
+  nnodes: 1
+  n_gpus_per_node: ${gpu_count:${launcher.gpu_ids}}
+  total_rollout: ${rollout_count:${trainer.total_training_steps},${data.train_batch_size},${actor_rollout_ref.rollout.n}}
+  total_training_steps: 300
+  # native trainer의 epoch 상한. 아래 상한 안에 목표 updates가 들어가야 합니다.
+  total_epochs: 30
+  balance_batch: true
+  save_freq: 20
+  test_freq: 20
+  val_before_train: false
+  log_val_generations: 0
+  # file은 누적 로그/last 감시에 필수. W&B는 mode=disabled이면 자동 제외.
+  logger: [file, wandb]
+  project_name: ${oc.env:WANDB_PROJECT,math-reasoning}
+  experiment_name: ${runtime.run_name}
+  # native 선삭제를 끄고 launcher.keep_last_only로 완성 후 삭제합니다.
+  max_actor_ckpt_to_keep: null
+  del_local_ckpt_after_load: false
+  resume_mode: disable
+  default_local_dir: ${runtime.checkpoint_dir}
+  rollout_data_dir: ${runtime.run_dir}/rollouts
+  validation_data_dir: ${runtime.run_dir}/validation
+
+ray_kwargs:
+  ray_init:
+    num_cpus: 16
+    include_dashboard: false
+    object_store_memory: 2147483648
+    runtime_env:
+      py_executable: null

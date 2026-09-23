@@ -10,7 +10,14 @@ from typing import Any
 
 from tqdm import tqdm
 
-from .data import KNOWLEDGE_LEVELS, load_answers, load_problem_statements, read_json, repo_root, write_json
+from .data import (
+    KNOWLEDGE_LEVELS,
+    load_answers,
+    load_problem_statements,
+    read_json,
+    repo_root,
+    write_json,
+)
 from .llm import GPTChatter
 
 ERROR_CATEGORIES = (
@@ -36,12 +43,17 @@ def parse_proof_evaluation(text: str) -> dict[str, int] | None:
 
     if not isinstance(text, str):
         return None
-    if "### Error Pattern Analysis" not in text or "### Overall Correctness" not in text:
+    if (
+        "### Error Pattern Analysis" not in text
+        or "### Overall Correctness" not in text
+    ):
         return None
 
     result: dict[str, int] = {}
     for category in ERROR_CATEGORIES:
-        match = re.search(rf"{re.escape(category)}:\s*([01])", text, flags=re.IGNORECASE)
+        match = re.search(
+            rf"{re.escape(category)}:\s*([01])", text, flags=re.IGNORECASE
+        )
         result[category] = int(match.group(1)) if match else 0
 
     overall = re.search(
@@ -50,7 +62,9 @@ def parse_proof_evaluation(text: str) -> dict[str, int] | None:
         flags=re.IGNORECASE,
     )
     result["Overall Correctness"] = (
-        int(overall.group(1)) if overall else int(all(value == 0 for value in result.values()))
+        int(overall.group(1))
+        if overall
+        else int(all(value == 0 for value in result.values()))
     )
     return result
 
@@ -67,7 +81,9 @@ def strip_thinking(answer: str) -> str:
     return proof
 
 
-def calc_accuracy(labels: dict[str, list[dict[str, Any] | None]]) -> dict[str, float]:
+def calc_accuracy(
+    labels: dict[str, list[dict[str, Any] | None]],
+) -> dict[str, float]:
     """Compute per-level and overall correctness from parsed labels."""
 
     accuracy: dict[str, float] = {}
@@ -77,7 +93,11 @@ def calc_accuracy(labels: dict[str, list[dict[str, Any] | None]]) -> dict[str, f
         if not records:
             accuracy[level] = 0.0
             continue
-        correct = sum(1 for record in records if record and record.get("Overall Correctness") == 1)
+        correct = sum(
+            1
+            for record in records
+            if record and record.get("Overall Correctness") == 1
+        )
         accuracy[level] = correct / len(records)
         total_correct += correct
         total_count += len(records)
@@ -118,17 +138,25 @@ class ProofEvaluator:
             extra_body_env=judge_extra_body_env,
         )
 
-    def generate_answers(self, *, batch_size: int = 1, output_dir: str | Path | None = None) -> Path:
+    def generate_answers(
+        self, *, batch_size: int = 1, output_dir: str | Path | None = None
+    ) -> Path:
         answers: dict[str, list[str]] = {}
         for level in KNOWLEDGE_LEVELS:
             level_answers: list[str] = []
             questions = self.questions[level]
-            for index in tqdm(range(0, len(questions), batch_size), desc=f"Answering {level}"):
+            for index in tqdm(
+                range(0, len(questions), batch_size), desc=f"Answering {level}"
+            ):
                 batch = questions[index : index + batch_size]
                 level_answers.extend(self.model_client.get_llm_response(batch))
             answers[level] = level_answers
 
-        target_dir = Path(output_dir) if output_dir else self.root / "outputs" / "answers"
+        target_dir = (
+            Path(output_dir)
+            if output_dir
+            else self.root / "outputs" / "answers"
+        )
         output_path = target_dir / f"{self.model_name}_all.json"
         write_json(answers, output_path)
         return output_path
@@ -143,11 +171,21 @@ class ProofEvaluator:
         retry_delay: float = 5.0,
         strip_think: bool = True,
     ) -> Path:
-        answers = load_answers(self.model_name, answers_dir or self.root / "answers")
-        prompt_template = (self.root / "prompt" / "eval_prompt.txt").read_text(encoding="utf-8")
+        answers = load_answers(
+            self.model_name, answers_dir or self.root / "answers"
+        )
+        prompt_template = (self.root / "prompt" / "eval_prompt.txt").read_text(
+            encoding="utf-8"
+        )
 
-        target_dir = Path(output_dir) if output_dir else self.root / "outputs" / "judgements"
-        output_path = target_dir / f"{self.model_name}_{self.judge_model_name}_all.json"
+        target_dir = (
+            Path(output_dir)
+            if output_dir
+            else self.root / "outputs" / "judgements"
+        )
+        output_path = (
+            target_dir / f"{self.model_name}_{self.judge_model_name}_all.json"
+        )
         judgements = read_json(output_path) if output_path.exists() else {}
 
         for level in KNOWLEDGE_LEVELS:
@@ -158,13 +196,22 @@ class ProofEvaluator:
             judgements[level] = existing
 
             pending = [
-                {"index": idx, "question": self.questions[level][idx], "answer": answer}
+                {
+                    "index": idx,
+                    "question": self.questions[level][idx],
+                    "answer": answer,
+                }
                 for idx, answer in enumerate(level_answers)
                 if existing[idx] is None
-                or (isinstance(existing[idx], str) and existing[idx].lower().startswith("error"))
+                or (
+                    isinstance(existing[idx], str)
+                    and existing[idx].lower().startswith("error")
+                )
             ]
 
-            for start in tqdm(range(0, len(pending), batch_size), desc=f"Judging {level}"):
+            for start in tqdm(
+                range(0, len(pending), batch_size), desc=f"Judging {level}"
+            ):
                 batch = pending[start : start + batch_size]
                 remaining = batch
                 successful: dict[int, str] = {}
@@ -173,11 +220,15 @@ class ProofEvaluator:
                     prompts = [
                         prompt_template.format(
                             Question=item["question"],
-                            Proof=strip_thinking(item["answer"]) if strip_think else item["answer"],
+                            Proof=strip_thinking(item["answer"])
+                            if strip_think
+                            else item["answer"],
                         )
                         for item in remaining
                     ]
-                    responses = self.judge_model_client.get_llm_response(prompts)
+                    responses = self.judge_model_client.get_llm_response(
+                        prompts
+                    )
                     next_remaining = []
                     for item, response in zip(remaining, responses):
                         if response.strip().lower().startswith("error"):
@@ -193,18 +244,26 @@ class ProofEvaluator:
                 for index, response in successful.items():
                     judgements[level][index] = response
                 for item in remaining:
-                    judgements[level][item["index"]] = f"Error: Failed after {max_retries} retries."
+                    judgements[level][item["index"]] = (
+                        f"Error: Failed after {max_retries} retries."
+                    )
                 write_json(judgements, output_path)
 
         return output_path
 
-    def parse_judgements(self, judgement_path: str | Path, output_path: str | Path | None = None) -> Path:
+    def parse_judgements(
+        self, judgement_path: str | Path, output_path: str | Path | None = None
+    ) -> Path:
         judgements = read_json(judgement_path)
         labels = {
             level: [parse_proof_evaluation(item) for item in judgements[level]]
             for level in KNOWLEDGE_LEVELS
         }
-        target = Path(output_path) if output_path else self.root / "outputs" / "labels" / Path(judgement_path).name
+        target = (
+            Path(output_path)
+            if output_path
+            else self.root / "outputs" / "labels" / Path(judgement_path).name
+        )
         write_json(labels, target)
         return target
 
@@ -214,15 +273,25 @@ Proof_Evaluator = ProofEvaluator
 
 
 def main(argv: list[str] | None = None) -> None:
-    parser = argparse.ArgumentParser(description="Run RFMDataset LLM-as-judge evaluation.")
-    parser.add_argument("--model", required=True, help="Model whose answers are evaluated.")
-    parser.add_argument("--judge-model", required=True, help="Judge model name.")
+    parser = argparse.ArgumentParser(
+        description="Run RFMDataset LLM-as-judge evaluation."
+    )
+    parser.add_argument(
+        "--model", required=True, help="Model whose answers are evaluated."
+    )
+    parser.add_argument(
+        "--judge-model", required=True, help="Judge model name."
+    )
     parser.add_argument("--model-api-key-env", default="RFM_MODEL_API_KEY")
     parser.add_argument("--model-base-url-env", default="RFM_MODEL_BASE_URL")
-    parser.add_argument("--model-extra-body-env", default="RFM_MODEL_EXTRA_BODY")
+    parser.add_argument(
+        "--model-extra-body-env", default="RFM_MODEL_EXTRA_BODY"
+    )
     parser.add_argument("--judge-api-key-env", default="RFM_JUDGE_API_KEY")
     parser.add_argument("--judge-base-url-env", default="RFM_JUDGE_BASE_URL")
-    parser.add_argument("--judge-extra-body-env", default="RFM_JUDGE_EXTRA_BODY")
+    parser.add_argument(
+        "--judge-extra-body-env", default="RFM_JUDGE_EXTRA_BODY"
+    )
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--answers-dir", default="answers")
     parser.add_argument("--output-dir", default="outputs/judgements")

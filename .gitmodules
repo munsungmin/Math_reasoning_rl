@@ -1,12 +1,16 @@
 [submodule "ext/verl-cu121"]
 	path = ext/verl-cu121
-	url = https://github.com/verl-project/verl.git
+	url = https://github.com/munsungmin/verl.git
+	branch = math-reasoning-cu121
 [submodule "ext/verl"]
 	path = ext/verl
-	url = https://github.com/verl-project/verl.git
+	url = https://github.com/munsungmin/verl.git
+	branch = math-reasoning
 [submodule "ext/apex"]
-	path =ext/apex
-	url = https://github.com/NVIDIA/apex.git
+	path = ext/apex
+	url = https://github.com/munsungmin/apex.git
+	branch = math-reasoning
 [submodule "ext/limit-of-RLVR"]
 	path = ext/limit-of-RLVR
 	url = https://github.com/LeapLabTHU/limit-of-RLVR.git
+	branch = math-reasoning

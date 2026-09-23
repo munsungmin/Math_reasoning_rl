@@ -7,5 +7,5 @@ __pycache__/
 outputs/
 experiments/
 *.log
-.ext
-ext/
+/ext/*
+!/ext/verl
