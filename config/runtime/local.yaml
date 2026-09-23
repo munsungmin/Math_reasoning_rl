@@ -1,0 +1,14 @@
+base_dir: ${oc.env:MATH_REASONING_HOME,/data/sungmin/math_reasoning}
+output_dir: null
+gpu_ids: [2, 4, 5, 6]
+python: ${runtime.base_dir}/envs/verl-current/bin/python
+num_workers: 0
+worker_env:
+  HF_HUB_OFFLINE: '1'
+  TRANSFORMERS_OFFLINE: '1'
+  TOKENIZERS_PARALLELISM: 'false'
+  OMP_NUM_THREADS: '1'
+  NCCL_P2P_DISABLE: '1'
+  NCCL_IB_DISABLE: '1'
+  VLLM_USE_FLASHINFER_SAMPLER: '0'
+  RAY_DEDUP_LOGS: '0'

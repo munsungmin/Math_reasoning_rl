@@ -1,0 +1,5 @@
+_target_: scripts.reasoning.reward.WeightedReward
+defaults:
+  - leaf@components: [correctness, format, numeric]
+  - _self_
+weights: {correctness: 2.0, format: 0.5, numeric: 0.5}

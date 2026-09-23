@@ -1,0 +1,4 @@
+# @package callbacks
+adapter_geometry:
+  _target_: scripts.reasoning.callbacks.geometry.AdapterGeometry
+  every_n_steps: ${trainer.save_every}

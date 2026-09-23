@@ -1,0 +1,7 @@
+name: math500_level3_5
+sources:
+  train: ${runtime.base_dir}/artifacts/math_error_transfer/frozen/v1_20260910/rl_train.jsonl
+  validation: ${runtime.base_dir}/artifacts/math_error_transfer/frozen/validation_test_v1_20260910/math_validation.jsonl
+  test: ${runtime.base_dir}/artifacts/math_error_transfer/frozen/validation_test_v1_20260910/math_test.jsonl
+expected_counts: {train: 264, validation: 30, test: 37}
+levels: [3, 4, 5]

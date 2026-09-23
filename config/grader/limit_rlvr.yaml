@@ -1,0 +1,4 @@
+_target_: scripts.eval.graders.SubprocessGrader
+python: ${runtime.base_dir}/envs/limit-rlvr-grader/bin/python
+script: ${repo_root:}/scripts/eval/graders/worker.py
+timeout: 90

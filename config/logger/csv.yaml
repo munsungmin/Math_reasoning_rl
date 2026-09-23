@@ -1,0 +1,3 @@
+mode: disabled
+project: ${oc.env:WANDB_PROJECT,math-reasoning}
+entity: ${oc.env:WANDB_ENTITY,sungmin00-gwangju-institute-of-science-and-technology}

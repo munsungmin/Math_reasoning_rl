@@ -1,0 +1,3 @@
+pass_at_k:
+  _target_: scripts.reasoning.metric.PassAtK
+  ks: [1]

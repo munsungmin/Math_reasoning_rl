@@ -1,0 +1,3 @@
+defaults:
+  - training/weight_norm
+  - _self_

@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+  - /data/modules@data: math
+  - /data/prompts@data.prompt: raw
+  - /model: qwen25_math_1_5b
+  - /test_config: greedy
+  - /grader: limit_rlvr
+  - /optimizer: adamw
+  - /runtime: local
+  - /callbacks: train
+  - /logger: csv
+  - /data/sources@data: math500_frozen
+  - /task: evaluation
+  - /trainer: verl
+  - /evaluation: math
+  - /metrics: solve
+  - override /stage: test
+  - _self_
+experiment_name: eval_math
+runtime:
+  gpu_ids: [2]

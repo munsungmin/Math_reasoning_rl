@@ -1,0 +1,79 @@
+# Execution options owned by the pinned backend, separate from model/algorithm choices.
+actor:
+  strategy: fsdp
+  use_dynamic_bsz: false
+  ppo_max_token_len_per_gpu: 16384
+  use_torch_compile: false
+  fsdp_config:
+    model_dtype: fp32
+    dtype: ${model.dtype}
+    mixed_precision: {param_dtype: fp16, reduce_dtype: fp32, buffer_dtype: fp32}
+    param_offload: true
+    optimizer_offload: true
+    reshard_after_forward: true
+    fsdp_size: -1
+    forward_prefetch: false
+    use_orig_params: false
+    use_torch_compile: false
+    use_no_sync_for_gradient_accumulation: false
+    ulysses_sequence_parallel_size: 1
+    seed: ${model_seed}
+    full_determinism: false
+  checkpoint:
+    save_contents: [model, optimizer, extra]
+    load_contents: [model, optimizer, extra]
+    async_save: false
+    strict: true
+model:
+  trust_remote_code: false
+  enable_activation_offload: false
+  use_remove_padding: false
+  use_fused_kernels: false
+  exclude_modules: null
+rollout:
+  name: vllm
+  mode: async
+  dtype: ${model.dtype}
+  ignore_eos: false
+  tensor_model_parallel_size: 1
+  data_parallel_size: 1
+  pipeline_model_parallel_size: 1
+  gpu_memory_utilization: 0.5
+  enforce_eager: true
+  free_cache_engine: true
+  enable_chunked_prefill: true
+  enable_prefix_caching: false
+  max_num_seqs: 8
+  load_format: safetensors
+  layered_summon: true
+  log_prob_micro_batch_size_per_gpu: 2
+  agent: {num_workers: 1}
+  engine_kwargs:
+    vllm:
+      attention_config: {backend: TRITON_ATTN}
+      compilation_config: {mode: 0}
+ref:
+  log_prob_micro_batch_size_per_gpu: 2
+data:
+  shuffle: true
+  validation_shuffle: false
+  filter_overlong_prompts: false
+  filter_overlong_prompts_workers: 1
+  truncation: error
+  val_max_samples: -1
+  val_batch_size: null
+trainer:
+  use_v1: false
+  nnodes: 1
+  balance_batch: true
+  log_val_generations: 0
+  max_actor_ckpt_to_keep: null
+  del_local_ckpt_after_load: false
+  resume_mode: disable
+ray_kwargs:
+  ray_init:
+    num_cpus: 16
+    include_dashboard: false
+    object_store_memory: 2147483648
+    runtime_env:
+      py_executable: null

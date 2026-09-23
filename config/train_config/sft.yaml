@@ -1,0 +1,6 @@
+batch_size: 1
+accumulate_grad_batches: 8
+max_steps: -1
+max_epochs: 2
+grad_clip: 1.0
+max_tokens: 2048

@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - /metrics/leaf@task.val_metrics:
+    - classification
+    - entropy
+  - /metrics/leaf@task.test_metrics:
+    - classification
+    - entropy

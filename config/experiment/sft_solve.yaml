@@ -1,0 +1,30 @@
+# @package _global_
+defaults:
+  - /data/modules@data: math
+  - /data/prompts@data.prompt: raw
+  - /model: qwen25_math_1_5b
+  - /test_config: greedy
+  - /grader: limit_rlvr
+  - /optimizer: adamw
+  - /runtime: local
+  - /callbacks: train
+  - /logger: csv
+  - /data/sources@data: sft_math
+  - /task: sft_solve
+  - /train_config: sft
+  - /loss: causal_lm
+  - /lr_scheduler: linear
+  - /trainer: lightning
+  - /evaluation: math
+  - /metrics: solve
+  - _self_
+experiment_name: sft_solve
+runtime:
+  python: ${runtime.base_dir}/envs/math-supervised/bin/python
+  gpu_ids: [2]
+model:
+  adapter:
+    dropout: 0.05
+optimizer:
+  lr: 1.0e-5
+  weight_decay: 0.01

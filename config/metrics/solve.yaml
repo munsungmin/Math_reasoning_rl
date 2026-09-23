@@ -1,0 +1,10 @@
+# @package _global_
+defaults:
+  - /metrics/leaf@task.val_metrics:
+    - accuracy
+    - length
+    - pass_at_k
+  - /metrics/leaf@task.test_metrics:
+    - accuracy
+    - length
+    - pass_at_k

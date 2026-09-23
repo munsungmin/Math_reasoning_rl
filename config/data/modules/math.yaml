@@ -1,0 +1,7 @@
+_target_: scripts.reasoning.data.ReasoningData
+name: math500_level3_5
+kind: solve
+classification: multi
+max_samples: -1
+expected_counts: null
+levels: null

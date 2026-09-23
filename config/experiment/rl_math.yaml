@@ -1,0 +1,25 @@
+# @package _global_
+defaults:
+  - /data/modules@data: math
+  - /data/prompts@data.prompt: raw
+  - /model: qwen25_math_1_5b
+  - /test_config: native_greedy
+  - /grader: limit_rlvr
+  - /optimizer: adamw
+  - /runtime: local
+  - /callbacks: train
+  - /logger: csv
+  - /data/sources@data: math500_frozen
+  - /task: rl
+  - /train_config: grpo
+  - /rollout: sample8
+  - /reward: math
+  - /advantage: grpo
+  - /loss: grpo
+  - /lr_scheduler: constant
+  - /trainer: verl
+  - /evaluation: math
+  - /metrics: solve
+  - /backend: verl
+  - _self_
+experiment_name: rl_math

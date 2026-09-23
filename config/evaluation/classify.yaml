@@ -1,0 +1,4 @@
+split: test
+predictions: null
+kind: classify
+labels: ${task.labels}

@@ -1,0 +1,2 @@
+correctness:
+  _target_: scripts.reasoning.reward.Correctness

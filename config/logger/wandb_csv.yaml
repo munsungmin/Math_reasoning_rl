@@ -1,0 +1,2 @@
+defaults: [csv, _self_]
+mode: ${oc.env:WANDB_MODE,online}

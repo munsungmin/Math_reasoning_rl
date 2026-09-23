@@ -1,0 +1,5 @@
+name: constant
+warmup_steps: 0
+warmup_ratio: 0.0
+min_lr_ratio: 0.0
+num_cycles: 0.5

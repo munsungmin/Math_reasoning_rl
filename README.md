@@ -1,25 +1,26 @@
 # Math_reasoning_rl
 
-현재 실험은 **Qwen2.5-Math-1.5B + LoRA + verl GRPO**이며, 학습 데이터는 **MATH-500 level 3–5**다.
+`../Parse-Focusing`의 책임 구분과 디렉터리 구성을 따라 RL, SFT, evaluation을 독립적으로 조립한다. 새 설정은 `config/`, 실제 코드는 `scripts/`에 있다. **Lightning은 SFT에만 사용하고 RL은 기존 native verl을 사용한다.**
+
+- `scripts/train/rl/`: native 설정 변환, 실행, 데이터 동결, checkpoint와 모델 관찰 연결.
+- `scripts/train/sft/`: 풀이 생성과 오류 분류의 독립 Lightning pipeline.
+- `scripts/eval/`: 모델 추론, 저장된 예측 재채점, 공통 metric 집계.
+- `scripts/reasoning/`: model/modules, data/sampler, rollout, reward, advantage, loss, metric, 모델 관찰 callback.
+- `config/experiment/`: 위 부품을 선택하는 RL·두 SFT·두 evaluation recipe.
+
+`metric`은 입력과 모델의 예측을 받고, 연구용 `callback`은 모델 자체의 가중치·LoRA 구조를 관찰한다. 순수 계산은 `metric/functional/`에서 공유한다. SFT를 거친 모델과 base 모델 모두 같은 RL 초기화 인터페이스를 사용한다.
+
+구조, 실행 예시, 재현성 규칙, backend 지원 범위는 [구현된 구조와 사용법](docs/architecture.md)에 정리했다. 참조 코드에서 배운 구분 기준은 [책임 경계](docs/architecture_boundaries.md), 초기 설계안은 [구조 계획](docs/architecture_plan.md)에 있다.
 
 ```bash
-cd /home/sungmin/math_reasoning
-conda activate /data/sungmin/math_reasoning/envs/verl-current
-python main.py --config-name verl_math
+# 설정만 확인한다. GPU 학습을 실행하지 않는다.
+/data/sungmin/math_reasoning/envs/verl-current/bin/python main.py \
+  experiment=rl_math --cfg job --resolve
 ```
 
-학습 설정은 [configs/verl_math.yaml](configs/verl_math.yaml) 하나에서 수정한다. 옵션 설명과 실행 방법은 [script/README.md](script/README.md)에 정리되어 있다. 다른 터미널에서 `bash script/run_math_verl.sh logs`를 실행하면 누적 상세 로그를 볼 수 있다. 실행 터미널에는 update·loss·정답률·reward를 한 줄씩 표시한다.
+학습 entry는 `experiment=rl_math`, `experiment=sft_solve`, `experiment=sft_classify`다. 독립 평가는 `experiment=eval_math`와 `experiment=eval_classify`를 사용한다. 실제 학습·모델 추론 명령은 GPU를 사용할 수 있으므로 [실행 예시](docs/architecture.md)를 확인한다.
 
-Hydra 직접 실행은 `python main.py --config-name verl_math`이며, 검증된 `verl-current` 환경에서 실행한다. `launcher.seed=29` 같은 override, `--cfg job --resolve` 설정 출력, `-m launcher.seed=17,29` 순차 실행을 지원한다. shell에서도 같은 Hydra 인자를 전달할 수 있다.
-
-- 현재 RL: train 264문제, validation 30문제, test 37문제, seed 17/29, 실험별 300 updates.
-- W&B: train 매 update, validation 20 updates마다, test는 300 updates 완료 후 `bash script/run_math_verl.sh test`로 실행. 설정은 [script/README.md](script/README.md)에 정리되어 있다.
-- GPU: 2·4·5·6에서 FSDP 학습과 vLLM rollout을 함께 실행한다.
-- 체크포인트: `/data/sungmin/math_reasoning/checkpoints/` 아래, 20 updates마다 최신 `last` 교체.
-- 실험·판정·분석 명세: 로컬 `experiments/math_error_transfer/`. `experiments/`는 Git에서 제외하므로 별도로 복사해야 한다.
-- `dataset/`: 이미 구축된 데이터. 여러 데이터셋이 존재하지만 현재 RL 입력은 고정 MATH-500 subset이다.
-- `script/stages/`, `script/analysis/`: 후속 학습과 평가·분석 코드.
-- `ext/`: 외부 소스를 특정 commit으로 고정한 Git submodule. 실행기는 `/data/sungmin/math_reasoning/envs/verl-current` Conda 환경의 Python을 사용한다.
+이전 실험의 `configs/`와 `script/` 명령은 호환 경로로 남아 있다. `python main.py --config-name verl_math`, `bash script/run_math_verl.sh ...`의 기존 사용법은 [기존 실행기 설명](script/README.md)을 참고한다. `data/`는 기존 `dataset/`에 대한 링크다. 로컬 실험 명세인 `experiments/math_error_transfer/`와 `/data`의 모델·입력·checkpoint는 Git clone에 포함되지 않는다.
 
 ## 다른 컴퓨터에서 소스 받기
 

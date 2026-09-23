@@ -1,0 +1,4 @@
+_target_: scripts.reasoning.lit_model.supervised.SupervisedTask
+_recursive_: false
+kind: classify
+labels: [A, B, C, D]

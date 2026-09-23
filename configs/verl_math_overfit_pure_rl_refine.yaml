@@ -1,0 +1,22 @@
+# Pure GRPO refinement from phase A's pure-RL checkpoint, with a small
+# entropy penalty to test whether an already-correct greedy policy can
+# become more consistent under the unchanged temperature-1 rollout.
+defaults:
+  - verl_math_overfit_pure_rl
+  - _self_
+
+launcher:
+  experiment: overfit_pure_grpo_entropy_m001
+
+actor_rollout_ref:
+  model:
+    lora_adapter_path: ${launcher.base_dir}/artifacts/math_error_transfer/overfit_recovery_20260912/pure_rl/phase_a_step50/lora_adapter
+  actor:
+    # verl subtracts entropy_coeff * entropy from the policy loss.
+    # A negative coefficient penalizes entropy; no target text is used.
+    entropy_coeff: -0.01
+    calculate_entropy: true
+
+trainer:
+  total_training_steps: 40
+  total_epochs: ${trainer.total_training_steps}

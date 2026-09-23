@@ -1,0 +1,5 @@
+# @package loss
+policy: vanilla
+clip_low: 0.2
+clip_high: 0.2
+dual_clip: 3.0

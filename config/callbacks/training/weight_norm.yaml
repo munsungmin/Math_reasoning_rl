@@ -1,0 +1,5 @@
+# @package callbacks
+weight_norm:
+  _target_: scripts.reasoning.callbacks.model_analyzer.WeightNorm
+  every_n_steps: ${trainer.save_every}
+  trainable_only: true

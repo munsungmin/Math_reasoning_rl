@@ -1,0 +1,3 @@
+# Existing rows already contain the exact prompt. No second chat template.
+chat_template: '{{ messages[0]["content"] }}'
+max_prompt_length: 256

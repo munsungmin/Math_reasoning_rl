@@ -1,0 +1,6 @@
+_target_: scripts.reasoning.loss.policy.PolicyObjective
+defaults:
+  - policy: clipped
+  - regularization: kl_entropy
+  - reduction: token
+  - _self_

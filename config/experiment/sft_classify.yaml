@@ -1,0 +1,32 @@
+# @package _global_
+defaults:
+  - /data/modules@data: math
+  - /data/prompts@data.prompt: raw
+  - /model: qwen25_math_1_5b
+  - /test_config: greedy
+  - /grader: limit_rlvr
+  - /optimizer: adamw
+  - /runtime: local
+  - /callbacks: train
+  - /logger: csv
+  - /data/sources@data: perl
+  - /task: sft_classify
+  - /train_config: sft
+  - /loss: causal_lm
+  - /lr_scheduler: linear
+  - /trainer: lightning
+  - /evaluation: classify
+  - /metrics: classify
+  - _self_
+experiment_name: sft_classify
+runtime:
+  python: ${runtime.base_dir}/envs/math-supervised/bin/python
+  gpu_ids: [2]
+model:
+  adapter:
+    dropout: 0.05
+optimizer:
+  lr: 1.0e-5
+  weight_decay: 0.01
+train_config:
+  max_epochs: 3

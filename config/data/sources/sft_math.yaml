@@ -1,0 +1,5 @@
+name: math_sft
+sources:
+  train: ${runtime.base_dir}/artifacts/math_error_transfer/frozen/v1_20260910/sft_train.jsonl
+  validation: null
+  test: null

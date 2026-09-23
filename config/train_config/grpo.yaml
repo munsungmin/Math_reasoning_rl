@@ -1,0 +1,9 @@
+batch_size: 4
+micro_batch_size: 1
+max_steps: 300
+max_epochs: 30
+grad_clip: 0.1
+ppo_epochs: 1
+actor_shuffle: false
+actor_data_seed: 42
+max_tokens: 2048

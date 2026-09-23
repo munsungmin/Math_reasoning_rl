@@ -1,0 +1,3 @@
+_target_: scripts.train.rl.task.RLTask
+_recursive_: false
+kind: rl

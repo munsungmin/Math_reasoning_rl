@@ -1,0 +1,4 @@
+defaults:
+  - training/weight_norm
+  - analysis/adapter_geometry
+  - _self_

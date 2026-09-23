@@ -1,0 +1,3 @@
+classification:
+  _target_: scripts.reasoning.metric.ClassificationMetrics
+  num_classes: ${list_len:${task.labels}}

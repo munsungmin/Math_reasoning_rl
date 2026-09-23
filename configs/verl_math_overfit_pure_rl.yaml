@@ -1,0 +1,26 @@
+# Pure GRPO continuation. This adapter contains baseline GRPO + 4 GRPO updates.
+# No SFT weights, gold-solution targets, prompt hints, or grader changes.
+# Run: WANDB_DISABLE_GIT=true bash script/run_math_verl.sh --config-name verl_math_overfit_pure_rl
+defaults:
+  - verl_math_overfitting
+  - _self_
+
+launcher:
+  experiment: overfit_pure_grpo_lr3e4
+  keep_last_only: false
+  worker_env:
+    WANDB_DISABLE_GIT: "true"
+
+actor_rollout_ref:
+  model:
+    lora_adapter_path: ${launcher.base_dir}/artifacts/math_error_transfer/overfit_recovery_20260912/grpo_step4/lora_adapter
+  actor:
+    use_kl_loss: false
+    optim:
+      lr: 3.0e-4
+
+trainer:
+  total_training_steps: 80
+  total_epochs: ${trainer.total_training_steps}
+  save_freq: 5
+  test_freq: -1

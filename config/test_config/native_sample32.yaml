@@ -1,0 +1,5 @@
+_target_: scripts.reasoning.rollout.sampling.NativeValidationSampling
+n: 32
+temperature: 0.8
+top_p: 0.95
+top_k: -1

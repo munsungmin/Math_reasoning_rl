@@ -1,0 +1,3 @@
+defaults: [greedy, _self_]
+n: 32
+temperature: 1.0

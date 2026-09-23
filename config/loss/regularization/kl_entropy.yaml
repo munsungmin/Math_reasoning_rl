@@ -1,0 +1,4 @@
+# @package loss
+kl_coefficient: 0.01
+kl_type: low_var_kl
+entropy_coefficient: 0.0
